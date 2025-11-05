@@ -4,7 +4,7 @@ using ClearBank.DeveloperTest.Domain.Entities;
 using ClearBank.DeveloperTest.Domain.Enums;
 using NUnit.Framework;
 
-namespace ClearBank.DeveloperTest.Tests.ValidatorTests
+namespace ClearBank.DeveloperTest.Tests.ApplicationTests.ValidatorTests
 {
     [TestFixture]
     public class FasterPaymentsValidatorTests

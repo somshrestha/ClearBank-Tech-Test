@@ -1,9 +1,10 @@
 ﻿using ClearBank.DeveloperTest.Domain.Entities;
 using ClearBank.DeveloperTest.Domain.Enums;
+using ClearBank.DeveloperTest.Infrastructure.Interfaces;
 
-namespace ClearBank.DeveloperTest.Data
+namespace ClearBank.DeveloperTest.Infrastructure.Data
 {
-    public class BackupAccountDataStore
+    public class BackupAccountDataStore : IAccountDataStore
     {
         public Account GetAccount(string accountNumber)
         {

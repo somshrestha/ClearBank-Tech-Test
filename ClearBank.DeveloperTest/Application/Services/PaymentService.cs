@@ -1,29 +1,27 @@
 ﻿using ClearBank.DeveloperTest.Application.DTOs;
-using ClearBank.DeveloperTest.Data;
+using ClearBank.DeveloperTest.Application.Interfaces;
 using ClearBank.DeveloperTest.Domain.Entities;
-using ClearBank.DeveloperTest.Domain.Enums;
-using System.Configuration;
 
-namespace ClearBank.DeveloperTest.Services
+namespace ClearBank.DeveloperTest.Application.Services
 {
     public class PaymentService : IPaymentService
     {
         public MakePaymentResult MakePayment(MakePaymentRequest request)
         {
-            var dataStoreType = ConfigurationManager.AppSettings["DataStoreType"];
+            //var dataStoreType = ConfigurationManager.AppSettings["DataStoreType"];
 
             Account account = null;
 
-            if (dataStoreType == "Backup")
-            {
-                var accountDataStore = new BackupAccountDataStore();
-                account = accountDataStore.GetAccount(request.DebtorAccountNumber);
-            }
-            else
-            {
-                var accountDataStore = new AccountDataStore();
-                account = accountDataStore.GetAccount(request.DebtorAccountNumber);
-            }
+            //if (dataStoreType == "Backup")
+            //{
+            //    var accountDataStore = new BackupAccountDataStore();
+            //    account = accountDataStore.GetAccount(request.DebtorAccountNumber);
+            //}
+            //else
+            //{
+            //    var accountDataStore = new AccountDataStore();
+            //    account = accountDataStore.GetAccount(request.DebtorAccountNumber);
+            //}
 
             var result = new MakePaymentResult();
 
@@ -77,16 +75,16 @@ namespace ClearBank.DeveloperTest.Services
             {
                 //account.Balance -= request.Amount;
 
-                if (dataStoreType == "Backup")
-                {
-                    var accountDataStore = new BackupAccountDataStore();
-                    accountDataStore.UpdateAccount(account);
-                }
-                else
-                {
-                    var accountDataStore = new AccountDataStore();
-                    accountDataStore.UpdateAccount(account);
-                }
+                //if (dataStoreType == "Backup")
+                //{
+                //    var accountDataStore = new BackupAccountDataStore();
+                //    accountDataStore.UpdateAccount(account);
+                //}
+                //else
+                //{
+                //    var accountDataStore = new AccountDataStore();
+                //    accountDataStore.UpdateAccount(account);
+                //}
             }
 
             return result;
