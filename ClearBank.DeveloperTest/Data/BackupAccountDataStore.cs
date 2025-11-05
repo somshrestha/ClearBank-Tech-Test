@@ -1,4 +1,5 @@
-﻿using ClearBank.DeveloperTest.Types;
+﻿using ClearBank.DeveloperTest.Domain.Entities;
+using ClearBank.DeveloperTest.Domain.Enums;
 
 namespace ClearBank.DeveloperTest.Data
 {
@@ -7,7 +8,7 @@ namespace ClearBank.DeveloperTest.Data
         public Account GetAccount(string accountNumber)
         {
             // Access backup data base to retrieve account, code removed for brevity 
-            return new Account();
+            return new Account(accountNumber, 1000m, AccountStatus.Live, AllowedPaymentSchemes.FasterPayments);
         }
 
         public void UpdateAccount(Account account)
