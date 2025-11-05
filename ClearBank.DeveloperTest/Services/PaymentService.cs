@@ -1,4 +1,6 @@
 ﻿using ClearBank.DeveloperTest.Data;
+using ClearBank.DeveloperTest.Domain.Entities;
+using ClearBank.DeveloperTest.Domain.Enums;
 using ClearBank.DeveloperTest.Types;
 using System.Configuration;
 
@@ -34,10 +36,10 @@ namespace ClearBank.DeveloperTest.Services
                     {
                         result.Success = false;
                     }
-                    else if (!account.AllowedPaymentSchemes.HasFlag(AllowedPaymentSchemes.Bacs))
-                    {
-                        result.Success = false;
-                    }
+                    //else if (!account.AllowedPaymentSchemes.HasFlag(AllowedPaymentSchemes.Bacs))
+                    //{
+                    //    result.Success = false;
+                    //}
                     break;
 
                 case PaymentScheme.FasterPayments:
@@ -45,14 +47,14 @@ namespace ClearBank.DeveloperTest.Services
                     {
                         result.Success = false;
                     }
-                    else if (!account.AllowedPaymentSchemes.HasFlag(AllowedPaymentSchemes.FasterPayments))
-                    {
-                        result.Success = false;
-                    }
-                    else if (account.Balance < request.Amount)
-                    {
-                        result.Success = false;
-                    }
+                    //else if (!account.AllowedPaymentSchemes.HasFlag(AllowedPaymentSchemes.FasterPayments))
+                    //{
+                    //    result.Success = false;
+                    //}
+                    //else if (account.Balance < request.Amount)
+                    //{
+                    //    result.Success = false;
+                    //}
                     break;
 
                 case PaymentScheme.Chaps:
@@ -60,10 +62,10 @@ namespace ClearBank.DeveloperTest.Services
                     {
                         result.Success = false;
                     }
-                    else if (!account.AllowedPaymentSchemes.HasFlag(AllowedPaymentSchemes.Chaps))
-                    {
-                        result.Success = false;
-                    }
+                    //else if (!account.AllowedPaymentSchemes.HasFlag(AllowedPaymentSchemes.Chaps))
+                    //{
+                    //    result.Success = false;
+                    //}
                     else if (account.Status != AccountStatus.Live)
                     {
                         result.Success = false;
@@ -73,7 +75,7 @@ namespace ClearBank.DeveloperTest.Services
 
             if (result.Success)
             {
-                account.Balance -= request.Amount;
+                //account.Balance -= request.Amount;
 
                 if (dataStoreType == "Backup")
                 {
