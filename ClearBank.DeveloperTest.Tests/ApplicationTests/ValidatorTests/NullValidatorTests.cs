@@ -4,7 +4,7 @@ using ClearBank.DeveloperTest.Domain.Entities;
 using ClearBank.DeveloperTest.Domain.Enums;
 using NUnit.Framework;
 
-namespace ClearBank.DeveloperTest.Tests.ValidatorTests
+namespace ClearBank.DeveloperTest.Tests.ApplicationTests.ValidatorTests
 {
     [TestFixture]
     public class NullValidatorTests
@@ -47,7 +47,7 @@ namespace ClearBank.DeveloperTest.Tests.ValidatorTests
         public void IsValid_WhenRequestIsNull_ShouldReturnFalse()
         {
             // Arrange
-            MakePaymentRequest? request = null;
+            MakePaymentRequest request = null;
             var account = new Account("accountNumber", 500m, AccountStatus.Live, AllowedPaymentSchemes.Bacs);
 
             // Act
